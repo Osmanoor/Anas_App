@@ -48,6 +48,6 @@ def VSR(video_path):
     modality = "video"
     model_conf = os.path.join("model.json") 
     model_path = os.path.join("model.pth")
-    pipeline = InferencePipeline(modality, model_path, model_conf, face_track=True)
+    pipeline = InferencePipeline(modality, model_path, model_conf, face_track=True, device="cuda:-1")
     transcript = pipeline(video_path)
     return transcript
