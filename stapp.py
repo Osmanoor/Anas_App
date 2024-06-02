@@ -1,7 +1,7 @@
 import streamlit as st
 import tempfile
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+#os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 import pipeline
 import crop
 
