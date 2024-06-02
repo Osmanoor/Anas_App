@@ -1,21 +1,9 @@
 import streamlit as st
 import tempfile
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 import pipeline
 import crop
-import subprocess
 
-def run_command(args):
-    """Run command, transfer stdout/stderr back into Streamlit and manage error"""
-    st.info(f"Running '{' '.join(args)}'")
-    result = subprocess.run(args, capture_output=True, text=True)
-    try:
-        result.check_returncode()
-        st.info(result.stdout)
-    except subprocess.CalledProcessError as e:
-        st.error(result.stderr)
-        raise e
-
-run_command("export CUDA_VISIBLE_DEVICES='0'")
 # Set the title of the app
 st.title("Visual Speech Recognition")
 
